@@ -36,7 +36,7 @@ func main() {
 
 func process(w http.ResponseWriter, cr chan *http.Request) {
 	r := <-cr
-	var s items
+	var s item
 	json.NewDecoder(r.Body).Decode(&s)
 	json.NewEncoder(w).Encode(s)
 
@@ -64,7 +64,7 @@ func testpost(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Enter item and value to create")
 	}
 	json.Unmarshal(reqBody, &newitem)
-	prices = append(prices, newitem)
+	Items = append(Items, newitem)
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(newitem)
 }
