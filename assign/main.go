@@ -93,6 +93,6 @@ func testput(w http.ResponseWriter, r *http.Request) {
  			Items = append(Items[:index], Items[index+1:]...)
  		}
  	}
- 	w.Write(js)
+ 	w.Write(Items)
  }
 
